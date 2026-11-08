@@ -1,4 +1,4 @@
-const VERSION = 'ae4c970e9be2ce39';
+const VERSION = '8be99b69007abdba';
 const PREFIX = `rotwelsch:${self.registration.scope}:`;
 const CACHE = PREFIX + VERSION;
 
@@ -19,6 +19,17 @@ async function fetchOfflineFile(url, filename) {
   throw lastError;
 }
 
+async function checkOfflineData(response, asset) {
+  if (!['data/dictionary.json', 'data/sources.json', 'data/lessons.json', 'data/texts.json'].includes(asset)) return;
+  let data;
+  try { data = await response.clone().json(); }
+  catch { throw new Error(`Inhaltsdatei ist kein lesbares JSON: ${asset}`); }
+  const valid = asset === 'data/dictionary.json'
+    ? data && typeof data.version === 'string' && Array.isArray(data.historical) && Array.isArray(data.secondary) && (!data.collections || Array.isArray(data.collections)) && data.currentReferences && typeof data.currentReferences === 'object' && !Array.isArray(data.currentReferences)
+    : Array.isArray(data) && data.length > 0;
+  if (!valid) throw new Error(`Inhaltsdatei hat eine ungültige Grundstruktur: ${asset}`);
+}
+
 self.addEventListener('install', event => event.waitUntil((async () => {
   const stagingName = CACHE + ':install';
   const existingCache = await caches.has(CACHE);
@@ -26,14 +37,13 @@ self.addEventListener('install', event => event.waitUntil((async () => {
     const response = await fetchOfflineFile(new URL('assets/precache.json', self.registration.scope), 'assets/precache.json');
     const manifest = await response.json();
     if (manifest.version !== VERSION) throw new Error('Versionskonflikt zwischen sw.js und assets/precache.json. Build abschließen und Seite neu laden.');
+    if (!Array.isArray(manifest.assets) || !manifest.assets.length) throw new Error('Die Offline-Dateiliste fehlt.');
     await caches.delete(stagingName);
     const staging = await caches.open(stagingName);
     for (const asset of manifest.assets) {
       const url = new URL(asset, self.registration.scope);
       const result = await fetchOfflineFile(url, asset);
-      const bytes = await result.clone().arrayBuffer();
-      const hash = [...new Uint8Array(await crypto.subtle.digest('SHA-256', bytes))].map(value => value.toString(16).padStart(2, '0')).join('');
-      if (hash !== manifest.digests[asset]) throw new Error(`Prüfsumme stimmt nicht: ${asset}. Dateien und Cachemanifest müssen aus demselben Build stammen.`);
+      await checkOfflineData(result, asset);
       await staging.put(url, result);
     }
     const cache = await caches.open(CACHE);

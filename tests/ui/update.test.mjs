@@ -13,14 +13,20 @@ let running;
 let browser;
 try {
   for (const filename of ['index.html', 'manifest.webmanifest', 'assets', 'css', 'data', 'js', 'sw.js']) await cp(path.join(root, filename), path.join(fixture, filename), { recursive: true });
+  const archiveManifest = JSON.parse(await readFile(path.join(fixture, 'assets/precache.json'), 'utf8'));
+  for (const asset of archiveManifest.assets.filter(asset => /\.(?:html|css|js|json|webmanifest)$/.test(asset) && !asset.startsWith('assets/sources/'))) {
+    const text = await readFile(path.join(fixture, asset), 'utf8');
+    await writeFile(path.join(fixture, asset), text.replace(/\r\n?/g, '\n'));
+  }
+  const startPage = await readFile(path.join(fixture, 'index.html'), 'utf8');
+  await writeFile(path.join(fixture, 'index.html'), startPage.replace('<title>Rotwelsch lernen</title>', '<title>Rotwelsch lernen: lokale Installation</title>'));
   const template = await readFile(path.join(root, 'tools/sw-template.js'), 'utf8');
   const original = JSON.parse(await readFile(path.join(fixture, 'data/dictionary.json'), 'utf8'));
   async function rebuild(version, corrupt = false) {
     await writeFile(path.join(fixture, 'data/dictionary.json'), JSON.stringify({ ...original, version }));
     const manifest = JSON.parse(await readFile(path.join(fixture, 'assets/precache.json'), 'utf8'));
-    for (const asset of manifest.assets) manifest.digests[asset] = createHash('sha256').update(await readFile(path.join(fixture, asset))).digest('hex');
-    manifest.version = createHash('sha256').update(JSON.stringify(manifest.digests)).digest('hex').slice(0, 16);
-    if (corrupt) manifest.digests['data/dictionary.json'] = 'invalid-hash';
+    manifest.version = createHash('sha256').update(version).digest('hex').slice(0, 16);
+    if (corrupt) await writeFile(path.join(fixture, 'data/dictionary.json'), '<html>Keine Inhaltsdaten</html>');
     await writeFile(path.join(fixture, 'assets/precache.json'), JSON.stringify(manifest));
     await writeFile(path.join(fixture, 'sw.js'), template.replace('__BUILD_VERSION__', manifest.version));
     return manifest.version;
@@ -43,8 +49,9 @@ try {
   await page.getByRole('button', { name: 'Erneut versuchen', exact: true }).click();
   await page.waitForFunction(() => document.querySelector('#offline-state')?.textContent === 'Offline bereit');
   assert.match(await page.locator('.page-heading').textContent(), /2 \/ 10/);
+  assert.ok(await page.evaluate(async () => (await (await fetch('./index.html')).text()).includes('Rotwelsch lernen: lokale Installation')));
   assert.equal(await page.getByRole('button', { name: 'Erneut versuchen', exact: true }).count(), 0);
-  console.log('Erstinstallationsprüfung bestanden: konkrete fehlende Datei gemeldet, Wiederholung erfolgreich, Lernstand erhalten.');
+  console.log('Erstinstallationsprüfung bestanden: angepasste Startseite akzeptiert, fehlende Datei gemeldet, Wiederholung erfolgreich, Lernstand erhalten.');
   const url = running.url + '/modules/13/index.html';
   await page.goto(url);
   await page.getByRole('heading', { name: 'Mein Lernplatz', exact: true }).waitFor();

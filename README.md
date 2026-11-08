@@ -40,10 +40,17 @@ Der Server lauscht nur auf `127.0.0.1` und wählt standardmäßig einen freien P
 Die tatsächliche Adresse steht in der Ausgabe. `PORT` kann für eine feste Adresse
 gesetzt werden; wechselnde Ports haben getrennte Lernspeicher.
 
+Der Offline-Cache vergleicht keine Datei-Prüfsummen. Unterschiede zwischen
+Windows-/Unix-Zeilenenden oder Anpassungen an der Startseite verhindern die
+Offline-Einrichtung nicht. Archivierte Quellen behalten über die Git-Attribute
+ihre originalen Bytes für die gesonderte Provenienzprüfung in der Entwicklung.
+
 ## Offline und Lernstand
 
 Die Anzeige **Offline bereit** erscheint erst bei einem aktiven Service Worker
-nach vollständigem, prüfsummengeprüftem Vorabcache. Wörterbuch, Schriften, Icons,
+nach vollständigem Vorabcache. Alle benötigten Dateien müssen erfolgreich
+geladen werden; die vier Lern-Inhaltsdateien müssen lesbares JSON mit gültiger
+Grundstruktur enthalten. Wörterbuch, Schriften, Icons,
 Übungen, Quellenbilder und OCR-Archiv werden lokal gecacht. Danach ist ein
 Neustart über die direkte Moduladresse auch ohne laufenden Server möglich.
 Für die Einrichtung sind HTTPS oder HTTP auf localhost/127.0.0.1 nötig;
@@ -51,7 +58,7 @@ Für die Einrichtung sind HTTPS oder HTTP auf localhost/127.0.0.1 nötig;
 von diesem Modul nicht offlinefähig gemacht.
 
 Updates werden erst per **Aktualisierung laden** übernommen, nicht während einer
-laufenden Kartenlernsitzung. Defekte Assetdownloads oder falsche Prüfsummen
+laufenden Kartenlernsitzung. Fehlende Dateien, defekte Downloads oder ungültige Inhaltsdaten
 verwerfen den neuen Cache; eine bereits funktionierende Version bleibt bestehen.
 Fremde Hub-Modulcaches werden nicht gelöscht.
 
@@ -59,7 +66,8 @@ Kurzzeitige Downloadfehler werden bis zu dreimal versucht. Dauerhafte Fehler
 zeigen die betroffene Datei beziehungsweise den Versions- oder Speicherfehler.
 **Erneut versuchen** startet die Offline-Einrichtung neu, ohne den Lernstand
 zu löschen. Bei einem Versionskonflikt müssen die Dateien aus einem vollständig
-abgeschlossenen Build stammen; eine falsche Prüfsumme wird nicht übergangen.
+abgeschlossenen Build stammen. Eine bloße Änderung von Datei-Bytes führt dagegen
+nicht mehr zum Abbruch.
 
 Der Lernstand wird getrennt vom Inhaltscache in IndexedDB gespeichert. Host,
 Port, Modulpfad und Browserprofil bestimmen den Speicher. `localhost` und
@@ -102,7 +110,8 @@ npm run test:all
 ```
 
 Der Build bündelt die gepinnten Browserbibliotheken, kopiert lokale Schriften und
-Lizenzen und erzeugt Versions- und Cachemanifest mit SHA-256-Prüfsummen.
+Lizenzen und erzeugt Versions- und Cachemanifest. Der Build-Hash dient nur als
+Kennung für neue Cacheversionen, nicht als Datei-Prüfsumme bei der Installation.
 Die vorhandenen Installationssymbole können unter Windows mit
 `tools/create-icons.ps1` neu erzeugt werden.
 

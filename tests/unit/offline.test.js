@@ -2,14 +2,12 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import vm from 'node:vm';
-import { createHash, webcrypto } from 'node:crypto';
 
 const template = await readFile(new URL('../../tools/sw-template.js', import.meta.url), 'utf8');
 
-async function install({ status = 200, failures = 0, corrupt = false, existing = false } = {}) {
+async function install({ status = 200, failures = 0, existing = false, asset = 'css/app.css', content = 'body', delivered = content } = {}) {
   const scope = 'https://localhost/modules/7/';
-  const bytes = 'body';
-  const manifest = { version: 'test', assets: ['css/app.css'], digests: { 'css/app.css': corrupt ? 'bad' : createHash('sha256').update(bytes).digest('hex') } };
+  const manifest = { version: 'test', assets: [asset] };
   const stores = new Map();
   const messages = [];
   const handlers = {};
@@ -28,12 +26,12 @@ async function install({ status = 200, failures = 0, corrupt = false, existing =
   };
   const context = vm.createContext({
     self: { registration: { scope, active: existing }, addEventListener: (name, handler) => { handlers[name] = handler; }, skipWaiting: async () => {}, clients: { matchAll: async () => [{ url: scope + 'index.html', postMessage: message => messages.push(message) }, { url: 'https://localhost/other/', postMessage: () => assert.fail('Fremdes Modul erhält Fehlermeldung') }] } },
-    caches, crypto: webcrypto, AbortSignal, URL, Response, Uint8Array,
+    caches, AbortSignal, URL, Response,
     fetch: async url => {
       if (String(url).endsWith('precache.json')) return Response.json(manifest);
       calls++;
       if (calls <= failures) throw new TypeError('Connection reset');
-      return new Response(bytes, { status });
+      return new Response(delivered, { status });
     },
   });
   vm.runInContext(template.replace('__BUILD_VERSION__', 'test'), context);
@@ -60,12 +58,40 @@ test('Dauerhafter Downloadfehler meldet konkrete Datei und lässt alten Cache be
   assert.ok(!result.stores.has(result.cacheName + ':install'));
 });
 
-test('Fehlende Datei und falsche Prüfsumme werden nicht als Offlinebereitschaft ausgegeben', async () => {
+test('Fehlende Datei wird nicht als Offlinebereitschaft ausgegeben', async () => {
   const missing = await install({ status: 404 });
   assert.equal(missing.calls, 1);
   assert.match(missing.messages[0].message, /HTTP 404/);
   assert.ok(!missing.stores.has(missing.cacheName));
-  const corrupt = await install({ corrupt: true });
-  assert.match(corrupt.messages[0].message, /Prüfsumme.*css\/app.css/);
-  assert.ok(!corrupt.stores.has(corrupt.cacheName));
+});
+
+test('Zeilenenden und HTML-Anpassungen benötigen kein neues Prüfsummenmanifest', async () => {
+  const source = '<!doctype html>\r\n<html lang="de">Grüße</html>\r\n';
+  for (const delivered of [source.replaceAll('\r\n', '\n'), '\ufeff' + source, source.replace('Grüße', 'Willkommen')]) {
+    const result = await install({ asset: 'index.html', content: source, delivered });
+    assert.equal(result.error, undefined);
+    assert.ok(result.stores.has(result.cacheName));
+    assert.equal(await result.stores.get(result.cacheName).get(result.scope + 'index.html').text(), delivered.replace(/^\ufeff/, ''));
+  }
+});
+
+test('Ungültiges JSON und fehlende Inhaltsstruktur lassen den vorhandenen Cache bestehen', async () => {
+  for (const delivered of ['<html>Fehlerseite</html>', '{}']) {
+    const result = await install({ asset: 'data/dictionary.json', delivered, existing: true });
+    assert.match(result.messages[0].message, /Inhaltsdatei.*data\/dictionary.json/);
+    assert.equal(await result.stores.get(result.cacheName).get(result.scope + 'index.html').text(), 'old version');
+  }
+});
+
+test('Gültige Inhaltsdateien werden ohne Datei-Prüfsummen gespeichert', async () => {
+  const dictionary = { version: '1.1.0', historical: [], secondary: [], currentReferences: {} };
+  const result = await install({ asset: 'data/dictionary.json', delivered: JSON.stringify(dictionary) });
+  assert.equal(result.error, undefined);
+  assert.ok(result.stores.has(result.cacheName));
+  for (const asset of ['data/sources.json', 'data/lessons.json', 'data/texts.json']) {
+    const empty = await install({ asset, delivered: '[]' });
+    assert.match(empty.messages[0].message, /Grundstruktur/);
+    const valid = await install({ asset, delivered: '[{"id":"example"}]' });
+    assert.equal(valid.error, undefined);
+  }
 });

@@ -24,11 +24,11 @@ const assets = ['index.html', 'manifest.webmanifest', 'js/theme-boot.js', 'asset
 for (const directory of ['assets/fonts', 'assets/licenses', 'assets/sources', 'assets/icons']) {
   for (const filename of await readdir(path.join(root, directory))) assets.push(`${directory}/${filename}`);
 }
-const digests = {};
-for (const filename of assets) digests[filename] = createHash('sha256').update(await readFile(path.join(root, filename))).digest('hex');
 const template = await readFile(path.join(root, 'tools/sw-template.js'), 'utf8');
-const version = createHash('sha256').update(metadata.version).update(JSON.stringify(digests)).update(template).digest('hex').slice(0, 16);
-await writeFile(path.join(root, 'assets/precache.json'), JSON.stringify({ version, assets, digests }, null, 2) + '\n');
+const fingerprint = createHash('sha256').update(metadata.version).update(template);
+for (const filename of assets) fingerprint.update(filename).update(await readFile(path.join(root, filename)));
+const version = fingerprint.digest('hex').slice(0, 16);
+await writeFile(path.join(root, 'assets/precache.json'), JSON.stringify({ version, assets }, null, 2) + '\n');
 await writeFile(path.join(root, 'sw.js'), template.replace('__BUILD_VERSION__', version));
 await writeFile(path.join(root, 'version.json'), JSON.stringify({ version: metadata.version, build: version, content: data.version, ...validateContent(data) }, null, 2) + '\n');
 console.log(`Offline-Build ${version}: ${assets.length} lokale Dateien`);

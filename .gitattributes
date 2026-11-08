@@ -1,0 +1,4 @@
+assets/sources/** -text
+*.png -text
+*.jpg -text
+*.woff2 -text
