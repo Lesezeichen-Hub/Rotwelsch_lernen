@@ -1,0 +1,62 @@
+{
+  "version": "1.1.0",
+  "entries": 849,
+  "headwords": 825,
+  "phrases": 71,
+  "phraseHeadwords": 71,
+  "variants": 108,
+  "lessons": 12,
+  "texts": 16,
+  "originalTexts": 7,
+  "historical": 822,
+  "secondary": 27,
+  "current": 9,
+  "localScans": 23,
+  "collections": [
+    {
+      "id": "winterfeld-original",
+      "title": "Winterfelder Hausirsprache: Originalglossar und überlieferte Grüße",
+      "entries": 27
+    },
+    {
+      "id": "pfalz-haendler",
+      "title": "Die Sprache der Pfälzer Händler, originale Aufzeichnungen bei Kluge",
+      "entries": 160
+    },
+    {
+      "id": "linke-handwerkslexikon",
+      "title": "Deutsches Handwerksburschen-Lexikon; Originalabdruck bei Kluge",
+      "entries": 29
+    },
+    {
+      "id": "killertal-1899",
+      "title": "Das Pleißlen der Killerthäler, originale Erhebung im Quellenbuch",
+      "entries": 164
+    },
+    {
+      "id": "rocholl-kundenlexikon",
+      "title": "Kunden-Lexikon aus Sechs Monate Vagabund; Originalabdruck bei Kluge",
+      "entries": 174
+    },
+    {
+      "id": "boeckel-1885",
+      "title": "Kundenglossar aus Deutschen Volksliedern aus Oberhessen; Abdruck bei Kluge",
+      "entries": 118
+    },
+    {
+      "id": "kluge-1901",
+      "title": "Rotwelsch. Quellen und Wortschatz, Band 1",
+      "entries": 150
+    },
+    {
+      "id": "wikipedia-rotwelsch",
+      "title": "Rotwelsch: Beispiele aus dem Vokabular",
+      "entries": 27
+    },
+    {
+      "id": "wiktionary-current",
+      "title": "Deutschsprachiges Wiktionary: aktueller Wortgebrauch",
+      "entries": 0
+    }
+  ]
+}

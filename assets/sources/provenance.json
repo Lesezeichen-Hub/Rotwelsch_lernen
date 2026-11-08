@@ -1,0 +1,205 @@
+{
+    "retrievedAt":  "2026-11-08T13:50:20.0003783Z",
+    "title":  "Rotwelsch : Quellen u. Wortschatz d. Gaunersprache u. d. verwandten Geheimsprachen. 1",
+    "author":  "Kluge, Friedrich",
+    "date":  "1901",
+    "rights":  "http://creativecommons.org/publicdomain/mark/1.0/",
+    "files":  [
+                  {
+                      "filename":  "kluge-p53.jpg",
+                      "url":  "https://ia601602.us.archive.org/BookReader/BookReaderImages.php?zip=/10/items/bub_gb_cc0PAAAAMAAJ/bub_gb_cc0PAAAAMAAJ_jp2.zip\u0026file=bub_gb_cc0PAAAAMAAJ_jp2/bub_gb_cc0PAAAAMAAJ_0070.jp2\u0026id=bub_gb_cc0PAAAAMAAJ\u0026scale=2\u0026rotate=0",
+                      "size":  225602,
+                      "sha256":  "e1f2c0ac2704a9b06ad38e5db1f7acecc7f39a5cf9ae556e28fa11fb7e377e90",
+                      "printedPage":  "53",
+                      "leafNum":  70
+                  },
+                  {
+                      "filename":  "kluge-p54.jpg",
+                      "url":  "https://ia601602.us.archive.org/BookReader/BookReaderImages.php?zip=/10/items/bub_gb_cc0PAAAAMAAJ/bub_gb_cc0PAAAAMAAJ_jp2.zip\u0026file=bub_gb_cc0PAAAAMAAJ_jp2/bub_gb_cc0PAAAAMAAJ_0071.jp2\u0026id=bub_gb_cc0PAAAAMAAJ\u0026scale=2\u0026rotate=0",
+                      "size":  208762,
+                      "sha256":  "2a294ff0aedc38995b813ddf8d0952ab06b86d5f61917fc6701955c92e3f4ac7",
+                      "printedPage":  "54",
+                      "leafNum":  71
+                  },
+                  {
+                      "filename":  "kluge-p55.jpg",
+                      "url":  "https://ia601602.us.archive.org/BookReader/BookReaderImages.php?zip=/10/items/bub_gb_cc0PAAAAMAAJ/bub_gb_cc0PAAAAMAAJ_jp2.zip\u0026file=bub_gb_cc0PAAAAMAAJ_jp2/bub_gb_cc0PAAAAMAAJ_0072.jp2\u0026id=bub_gb_cc0PAAAAMAAJ\u0026scale=2\u0026rotate=0",
+                      "size":  201434,
+                      "sha256":  "03deda1cc9685d35a6b7c5c5d8d9d6c6d76202983f54952391f5b84bc3d52976",
+                      "printedPage":  "55",
+                      "leafNum":  72
+                  },
+                  {
+                      "filename":  "kluge-p56.jpg",
+                      "url":  "https://ia601602.us.archive.org/BookReader/BookReaderImages.php?zip=/10/items/bub_gb_cc0PAAAAMAAJ/bub_gb_cc0PAAAAMAAJ_jp2.zip\u0026file=bub_gb_cc0PAAAAMAAJ_jp2/bub_gb_cc0PAAAAMAAJ_0073.jp2\u0026id=bub_gb_cc0PAAAAMAAJ\u0026scale=2\u0026rotate=0",
+                      "size":  241872,
+                      "sha256":  "870488fc1f90df00a3ad72bf6298e459f2e7d7c93629e1a9d886fb38b5da5994",
+                      "printedPage":  "56",
+                      "leafNum":  73
+                  },
+                  {
+                      "filename":  "kluge-metadata.json",
+                      "url":  "https://archive.org/metadata/bub_gb_cc0PAAAAMAAJ",
+                      "size":  117140,
+                      "sha256":  "1a23d0a1453a204fb328c2cb8e92f3fe3a90178d948e492ceea6847bb41c9797"
+                  },
+                  {
+                      "filename":  "kluge-1901-ocr.txt",
+                      "url":  "https://archive.org/download/bub_gb_cc0PAAAAMAAJ/bub_gb_cc0PAAAAMAAJ_djvu.txt",
+                      "size":  1146371,
+                      "sha256":  "f3474a3249d4015da92692f9b89e95fc31763fc8f63248d66266d32fb08e70ce"
+                  },
+                  {
+                      "filename":  "kluge-p422.jpg",
+                      "url":  "https://ia601602.us.archive.org/BookReader/BookReaderImages.php?zip=/10/items/bub_gb_cc0PAAAAMAAJ/bub_gb_cc0PAAAAMAAJ_jp2.zip\u0026file=bub_gb_cc0PAAAAMAAJ_jp2/bub_gb_cc0PAAAAMAAJ_0438.jp2\u0026id=bub_gb_cc0PAAAAMAAJ\u0026scale=2\u0026rotate=0",
+                      "size":  290294,
+                      "sha256":  "f5528060c95ddf5181e38e98ef745e8b4217a2783f7af0af9b7877307616845d",
+                      "printedPage":  "422",
+                      "leafNum":  438
+                  },
+                  {
+                      "filename":  "kluge-p423.jpg",
+                      "url":  "https://ia601602.us.archive.org/BookReader/BookReaderImages.php?zip=/10/items/bub_gb_cc0PAAAAMAAJ/bub_gb_cc0PAAAAMAAJ_jp2.zip\u0026file=bub_gb_cc0PAAAAMAAJ_jp2/bub_gb_cc0PAAAAMAAJ_0439.jp2\u0026id=bub_gb_cc0PAAAAMAAJ\u0026scale=2\u0026rotate=0",
+                      "size":  297971,
+                      "sha256":  "e3798e9c9a3db5b3606703bcf04e4630301e9f3c45bfd367f1960cd9bdc262b5",
+                      "printedPage":  "423",
+                      "leafNum":  439
+                  },
+                  {
+                      "filename":  "kluge-p424.jpg",
+                      "url":  "https://ia601602.us.archive.org/BookReader/BookReaderImages.php?zip=/10/items/bub_gb_cc0PAAAAMAAJ/bub_gb_cc0PAAAAMAAJ_jp2.zip\u0026file=bub_gb_cc0PAAAAMAAJ_jp2/bub_gb_cc0PAAAAMAAJ_0440.jp2\u0026id=bub_gb_cc0PAAAAMAAJ\u0026scale=2\u0026rotate=0",
+                      "size":  276409,
+                      "sha256":  "0fa452c9e95fcf102ad3a50f5d509cdaf213410f23f53978ddd7238ea0e47984",
+                      "printedPage":  "424",
+                      "leafNum":  440
+                  },
+                  {
+                      "filename":  "kluge-p425.jpg",
+                      "url":  "https://ia601602.us.archive.org/BookReader/BookReaderImages.php?zip=/10/items/bub_gb_cc0PAAAAMAAJ/bub_gb_cc0PAAAAMAAJ_jp2.zip\u0026file=bub_gb_cc0PAAAAMAAJ_jp2/bub_gb_cc0PAAAAMAAJ_0441.jp2\u0026id=bub_gb_cc0PAAAAMAAJ\u0026scale=2\u0026rotate=0",
+                      "size":  263297,
+                      "sha256":  "871f7c46d1343cff69ebfb4f78a82a4e6ada295932a0cf02abd91c8e2b989b55",
+                      "printedPage":  "425",
+                      "leafNum":  441
+                  },
+                  {
+                      "filename":  "kluge-p426.jpg",
+                      "url":  "https://ia601602.us.archive.org/BookReader/BookReaderImages.php?zip=/10/items/bub_gb_cc0PAAAAMAAJ/bub_gb_cc0PAAAAMAAJ_jp2.zip\u0026file=bub_gb_cc0PAAAAMAAJ_jp2/bub_gb_cc0PAAAAMAAJ_0442.jp2\u0026id=bub_gb_cc0PAAAAMAAJ\u0026scale=2\u0026rotate=0",
+                      "size":  247220,
+                      "sha256":  "c25d83c5dc1ef2e06149f697e8961385113e600a928cf9bf7525f428eb4b7138",
+                      "printedPage":  "426",
+                      "leafNum":  442
+                  },
+                  {
+                      "filename":  "kluge-p427.jpg",
+                      "url":  "https://ia601602.us.archive.org/BookReader/BookReaderImages.php?zip=/10/items/bub_gb_cc0PAAAAMAAJ/bub_gb_cc0PAAAAMAAJ_jp2.zip\u0026file=bub_gb_cc0PAAAAMAAJ_jp2/bub_gb_cc0PAAAAMAAJ_0443.jp2\u0026id=bub_gb_cc0PAAAAMAAJ\u0026scale=2\u0026rotate=0",
+                      "size":  235887,
+                      "sha256":  "6a4f9c376864951a1be1c4368d84c63a71521f39cb86dee8555652a80cc1f7c5",
+                      "printedPage":  "427",
+                      "leafNum":  443
+                  },
+                  {
+                      "filename":  "kluge-p428.jpg",
+                      "url":  "https://ia601602.us.archive.org/BookReader/BookReaderImages.php?zip=/10/items/bub_gb_cc0PAAAAMAAJ/bub_gb_cc0PAAAAMAAJ_jp2.zip\u0026file=bub_gb_cc0PAAAAMAAJ_jp2/bub_gb_cc0PAAAAMAAJ_0444.jp2\u0026id=bub_gb_cc0PAAAAMAAJ\u0026scale=2\u0026rotate=0",
+                      "size":  247980,
+                      "sha256":  "d6bb3827352c97814f6b0fc76a7d4e2b67918e5b1402285219218f5c06ee68e0",
+                      "printedPage":  "428",
+                      "leafNum":  444
+                  },
+                  {
+                      "filename":  "kluge-p429.jpg",
+                      "url":  "https://ia601602.us.archive.org/BookReader/BookReaderImages.php?zip=/10/items/bub_gb_cc0PAAAAMAAJ/bub_gb_cc0PAAAAMAAJ_jp2.zip\u0026file=bub_gb_cc0PAAAAMAAJ_jp2/bub_gb_cc0PAAAAMAAJ_0445.jp2\u0026id=bub_gb_cc0PAAAAMAAJ\u0026scale=2\u0026rotate=0",
+                      "size":  245436,
+                      "sha256":  "d73b4ded7d4ef6ed53376051d56ceea378a44849f09fca96cac847ab482b0903",
+                      "printedPage":  "429",
+                      "leafNum":  445
+                  },
+                  {
+                      "filename":  "kluge-p430.jpg",
+                      "url":  "https://ia601602.us.archive.org/BookReader/BookReaderImages.php?zip=/10/items/bub_gb_cc0PAAAAMAAJ/bub_gb_cc0PAAAAMAAJ_jp2.zip\u0026file=bub_gb_cc0PAAAAMAAJ_jp2/bub_gb_cc0PAAAAMAAJ_0446.jp2\u0026id=bub_gb_cc0PAAAAMAAJ\u0026scale=2\u0026rotate=0",
+                      "size":  246764,
+                      "sha256":  "15a45cdb6c81904a44abd4c8247616299d0cae2a0a9b285fc660bdc7eb383792",
+                      "printedPage":  "430",
+                      "leafNum":  446
+                  },
+                  {
+                      "filename":  "kluge-p431.jpg",
+                      "url":  "https://ia601602.us.archive.org/BookReader/BookReaderImages.php?zip=/10/items/bub_gb_cc0PAAAAMAAJ/bub_gb_cc0PAAAAMAAJ_jp2.zip\u0026file=bub_gb_cc0PAAAAMAAJ_jp2/bub_gb_cc0PAAAAMAAJ_0447.jp2\u0026id=bub_gb_cc0PAAAAMAAJ\u0026scale=2\u0026rotate=0",
+                      "size":  271469,
+                      "sha256":  "2a197049f89e6ec95fb70872859dbacb9b2532b1302d3e33d4d5076be4127d77",
+                      "printedPage":  "431",
+                      "leafNum":  447
+                  },
+                  {
+                      "filename":  "kluge-p432.jpg",
+                      "url":  "https://ia601602.us.archive.org/BookReader/BookReaderImages.php?zip=/10/items/bub_gb_cc0PAAAAMAAJ/bub_gb_cc0PAAAAMAAJ_jp2.zip\u0026file=bub_gb_cc0PAAAAMAAJ_jp2/bub_gb_cc0PAAAAMAAJ_0448.jp2\u0026id=bub_gb_cc0PAAAAMAAJ\u0026scale=2\u0026rotate=0",
+                      "size":  256777,
+                      "sha256":  "ddceff9a6c50abf6e54742947b723a642a78b3d2f78d93614dac7f27d943fab5",
+                      "printedPage":  "432",
+                      "leafNum":  448
+                  },
+                  {
+                      "filename":  "kluge-p433.jpg",
+                      "url":  "https://ia601602.us.archive.org/BookReader/BookReaderImages.php?zip=/10/items/bub_gb_cc0PAAAAMAAJ/bub_gb_cc0PAAAAMAAJ_jp2.zip\u0026file=bub_gb_cc0PAAAAMAAJ_jp2/bub_gb_cc0PAAAAMAAJ_0449.jp2\u0026id=bub_gb_cc0PAAAAMAAJ\u0026scale=2\u0026rotate=0",
+                      "size":  241453,
+                      "sha256":  "bea73b3d3b86c41a805b94a78632036805c9996f5081fc3c9dfe4c865f0c9b37",
+                      "printedPage":  "433",
+                      "leafNum":  449
+                  },
+                  {
+                      "filename":  "kluge-p434.jpg",
+                      "url":  "https://ia601602.us.archive.org/BookReader/BookReaderImages.php?zip=/10/items/bub_gb_cc0PAAAAMAAJ/bub_gb_cc0PAAAAMAAJ_jp2.zip\u0026file=bub_gb_cc0PAAAAMAAJ_jp2/bub_gb_cc0PAAAAMAAJ_0450.jp2\u0026id=bub_gb_cc0PAAAAMAAJ\u0026scale=2\u0026rotate=0",
+                      "size":  225939,
+                      "sha256":  "1e02d8cd4ad98ee9e99f9e588b24b0a2fa1d041729e770d14b374e79e177552e",
+                      "printedPage":  "434",
+                      "leafNum":  450
+                  },
+                  {
+                      "filename":  "kluge-p435.jpg",
+                      "url":  "https://ia601602.us.archive.org/BookReader/BookReaderImages.php?zip=/10/items/bub_gb_cc0PAAAAMAAJ/bub_gb_cc0PAAAAMAAJ_jp2.zip\u0026file=bub_gb_cc0PAAAAMAAJ_jp2/bub_gb_cc0PAAAAMAAJ_0451.jp2\u0026id=bub_gb_cc0PAAAAMAAJ\u0026scale=2\u0026rotate=0",
+                      "size":  202666,
+                      "sha256":  "71df183743c6208165d2325acf7787703d869826c32418697920eb447598665b",
+                      "printedPage":  "435",
+                      "leafNum":  451
+                  },
+                  {
+                      "filename":  "kluge-p436.jpg",
+                      "url":  "https://ia601602.us.archive.org/BookReader/BookReaderImages.php?zip=/10/items/bub_gb_cc0PAAAAMAAJ/bub_gb_cc0PAAAAMAAJ_jp2.zip\u0026file=bub_gb_cc0PAAAAMAAJ_jp2/bub_gb_cc0PAAAAMAAJ_0452.jp2\u0026id=bub_gb_cc0PAAAAMAAJ\u0026scale=2\u0026rotate=0",
+                      "size":  219765,
+                      "sha256":  "b453bb60b39730e6f08833f111e4d43f0cf49ebb4080f66a96c58cbb5e04b580",
+                      "printedPage":  "436",
+                      "leafNum":  452
+                  },
+                  {
+                      "filename":  "kluge-p437.jpg",
+                      "url":  "https://ia601602.us.archive.org/BookReader/BookReaderImages.php?zip=/10/items/bub_gb_cc0PAAAAMAAJ/bub_gb_cc0PAAAAMAAJ_jp2.zip\u0026file=bub_gb_cc0PAAAAMAAJ_jp2/bub_gb_cc0PAAAAMAAJ_0453.jp2\u0026id=bub_gb_cc0PAAAAMAAJ\u0026scale=2\u0026rotate=0",
+                      "size":  195311,
+                      "sha256":  "085d66c63863ce5b38d0cd345bcebb611fc94dc824b68c9f5f3531e438d24d07",
+                      "printedPage":  "437",
+                      "leafNum":  453
+                  },
+                  {
+                      "filename":  "kluge-p438.jpg",
+                      "url":  "https://ia601602.us.archive.org/BookReader/BookReaderImages.php?zip=/10/items/bub_gb_cc0PAAAAMAAJ/bub_gb_cc0PAAAAMAAJ_jp2.zip\u0026file=bub_gb_cc0PAAAAMAAJ_jp2/bub_gb_cc0PAAAAMAAJ_0454.jp2\u0026id=bub_gb_cc0PAAAAMAAJ\u0026scale=2\u0026rotate=0",
+                      "size":  164070,
+                      "sha256":  "cbf655b02b48e846b8b777590274688534f73a2e1f18276d60f17a561e9be99a",
+                      "printedPage":  "438",
+                      "leafNum":  454
+                  },
+                  {
+                      "filename":  "kluge-p439.jpg",
+                      "url":  "https://ia601602.us.archive.org/BookReader/BookReaderImages.php?zip=/10/items/bub_gb_cc0PAAAAMAAJ/bub_gb_cc0PAAAAMAAJ_jp2.zip\u0026file=bub_gb_cc0PAAAAMAAJ_jp2/bub_gb_cc0PAAAAMAAJ_0455.jp2\u0026id=bub_gb_cc0PAAAAMAAJ\u0026scale=2\u0026rotate=0",
+                      "size":  241764,
+                      "sha256":  "12d1294db5301a18e8ca486c8456a64218df26c3303abb4d7b9fd055eb5f0cf4",
+                      "printedPage":  "439",
+                      "leafNum":  455
+                  },
+                  {
+                      "filename":  "kluge-p440.jpg",
+                      "url":  "https://ia601602.us.archive.org/BookReader/BookReaderImages.php?zip=/10/items/bub_gb_cc0PAAAAMAAJ/bub_gb_cc0PAAAAMAAJ_jp2.zip\u0026file=bub_gb_cc0PAAAAMAAJ_jp2/bub_gb_cc0PAAAAMAAJ_0456.jp2\u0026id=bub_gb_cc0PAAAAMAAJ\u0026scale=2\u0026rotate=0",
+                      "size":  266221,
+                      "sha256":  "e1fb028be8a22774c553a825b377f768e794c413b1612a0c90a2e8b455c3302d",
+                      "printedPage":  "440",
+                      "leafNum":  456
+                  }
+              ]
+}

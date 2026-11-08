@@ -1,0 +1,100 @@
+[
+  {
+    "id": "winterfeld-original",
+    "title": "Winterfelder Hausirsprache: Originalglossar und überlieferte Grüße",
+    "author": "Friedrich Wilhelm Grimme; Friedrich Kluge und ergänzende Gewährsleute",
+    "year": "Vor 1901; Abdruck und ergänzte Liste 1901",
+    "url": "https://archive.org/details/bub_gb_cc0PAAAAMAAJ/page/n455/mode/2up",
+    "license": "Gemeinfrei / Public Domain Mark 1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "local": "./assets/sources/kluge-p440.jpg",
+    "note": "Kluge S. 439–440 nach Grimme, Das Sauerland und seine Bewohner, 2. Auflage, S. 116, danach eigene und ergänzte Ermittlungen. Die historische Ortsbenennung Winterfeld wird ohne unbelegten Abgleich mit heutigen Ortsnamen übernommen. Autorprosa und Originalglossar sind keine Tonaufnahmen oder wortwörtlichen Transkripte eines nachweislich stattgefundenen Gesprächs."
+  },
+  {
+    "id": "pfalz-haendler",
+    "title": "Die Sprache der Pfälzer Händler, originale Aufzeichnungen bei Kluge",
+    "author": "Friedrich Kluge und Wilhelm Franz",
+    "year": "Aufzeichnungen vor 1901; Veröffentlichung 1901",
+    "url": "https://archive.org/details/bub_gb_cc0PAAAAMAAJ/page/n453/mode/2up",
+    "license": "Gemeinfrei / Public Domain Mark 1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "local": "./assets/sources/kluge-p437.jpg",
+    "note": "Kluge S. 437–439, Krämer-Sprachen Nr. 2; eigene Aufzeichnungen in Karlsberg sowie Wilhelm Franz' Notizen von einem Pfälzer Händler. Teilweise ausdrücklich als Schleifersprache bezeichnete Formen sind bei den Einträgen markiert. Zahlwörter stammen aus der Anmerkung auf S. 439; unklare Lesarten wurden ausgelassen."
+  },
+  {
+    "id": "linke-handwerkslexikon",
+    "title": "Deutsches Handwerksburschen-Lexikon; Originalabdruck bei Kluge",
+    "author": "August Linke; Abdruck herausgegeben von Friedrich Kluge",
+    "year": "Vor 1901; Abdruck 1901",
+    "url": "https://archive.org/details/bub_gb_cc0PAAAAMAAJ/page/n446/mode/2up",
+    "license": "Gemeinfreier Originalabdruck / Public Domain Mark 1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "local": "./assets/sources/kluge-p430.jpg",
+    "note": "Kluge S. 430–434, Handwerksburschensprache Nr. 4, nach Linkes Lexikon S. 13–25. Erscheinungsjahr der verwendeten Vorlage nicht ergänzt. Originalquellen können bei derselben Wortform unterschiedliche Bedeutungen und soziale Wertungen überliefern."
+  },
+  {
+    "id": "killertal-1899",
+    "title": "Das Pleißlen der Killerthäler, originale Erhebung im Quellenbuch",
+    "author": "Friedrich Kluge und Wilhelm Franz",
+    "year": "Erhebung Oktober/November 1899; Veröffentlichung 1901",
+    "url": "https://archive.org/details/bub_gb_cc0PAAAAMAAJ/page/n450/mode/2up",
+    "license": "Gemeinfrei / Public Domain Mark 1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "local": "./assets/sources/kluge-p434.jpg",
+    "note": "Kluge S. 434–437, Krämer-Sprachen Nr. 1. Erkundigungen in Jungingen und Starzeln, 1899; Wilhelm Franz kontrollierte und ergänzte. Regionale Varianten sind nur angegeben, wenn die Quelle sie ausdrücklich benennt. Keine Gleichsetzung mit allen jenischen oder rotwelschen Wortschätzen. Unsichere Teilbedeutungen nicht als gesicherte Lernantwort übernommen."
+  },
+  {
+    "id": "rocholl-kundenlexikon",
+    "title": "Kunden-Lexikon aus Sechs Monate Vagabund; Originalabdruck bei Kluge",
+    "author": "D. Rocholl; Abdruck herausgegeben von Friedrich Kluge",
+    "year": "19. Jahrhundert; Abdruck 1901",
+    "url": "https://archive.org/details/bub_gb_cc0PAAAAMAAJ/page/n440/mode/2up",
+    "license": "Gemeinfreier Originalabdruck / Public Domain Mark 1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "local": "./assets/sources/kluge-p424.jpg",
+    "note": "Kluge S. 424 nennt Rocholls Werk Sechs Monate Vagabund und dessen Kunden-Lexikon ab S. 171 als Vorlage; Abdruck S. 424–430. Das Jahr der Vorlage ist hier nicht gesichert und wird nicht ergänzt. Originalscans lokal archiviert. Historische soziale Wertungen sind keine heutigen Aussagen über Sprechergruppen."
+  },
+  {
+    "id": "boeckel-1885",
+    "title": "Kundenglossar aus Deutschen Volksliedern aus Oberhessen; Abdruck bei Kluge",
+    "author": "Otto Böckel; herausgegeben im Quellenbuch von Friedrich Kluge",
+    "year": "1885; Abdruck 1901",
+    "url": "https://archive.org/details/bub_gb_cc0PAAAAMAAJ/page/n438/mode/2up",
+    "license": "Gemeinfreier Originalabdruck / Public Domain Mark 1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "local": "./assets/sources/kluge-p422.jpg",
+    "note": "Kluge S. 421 erläutert die Herkunft aus Böckels oberhessischer Sammlung von 1885; Glossar S. 422–424. Lokal eindeutig zugeordnete Scans ab S. 422. Einzelwörter können überregional sein. Historische Orthografie normalisiert transkribiert; keine heutigen Gebrauchsfrequenzen behauptet."
+  },
+  {
+    "id": "kluge-1901",
+    "title": "Rotwelsch. Quellen und Wortschatz, Band 1",
+    "author": "Friedrich Kluge (Herausgeber)",
+    "year": "1901",
+    "url": "https://archive.org/details/bub_gb_cc0PAAAAMAAJ",
+    "license": "Gemeinfrei / Public Domain Mark 1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "local": "./assets/sources/kluge-1901-ocr.txt",
+    "note": "Startbestand: Glossar des hochdeutschen Liber Vagatorum (1510), S. 53–55. Normalisierte Transkription: langes s und historische Umlautzeichen vereinheitlicht, Zeilenumbrüche aufgelöst. Bedeutungen modern erläutert. Lesbare Einträge mit lokalem Scan abgeglichen; keine pauschale Fachbegutachtung. Das historische Werk enthält diskriminierende Fremdbeschreibungen; diese werden nicht als heutige Charakterisierung übernommen. OCR ist ungeprüfte Erschließungshilfe."
+  },
+  {
+    "id": "wikipedia-rotwelsch",
+    "title": "Rotwelsch: Beispiele aus dem Vokabular",
+    "author": "Autorinnen und Autoren der deutschsprachigen Wikipedia",
+    "year": "Abruf 08.11.2026",
+    "url": "https://de.wikipedia.org/wiki/Rotwelsch#Beispiele_aus_dem_Vokabular",
+    "history": "https://de.wikipedia.org/w/index.php?title=Rotwelsch&action=history",
+    "license": "CC BY-SA 4.0; Auswahl und Bearbeitung",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.de",
+    "note": "Sekundärquelle, kein Originalscan. Bedeutungen ausgewählt und für Lernkarten vereinfacht. Mehrdeutigkeit in Notizen erläutert. Angaben zur heutigen Nutzung nur bei zusätzlicher aktuell abrufbarer Wörterbuchreferenz. Etymologien nicht ungeprüft übernommen. Die bearbeiteten Inhaltsdaten stehen ebenfalls unter CC BY-SA 4.0."
+  },
+  {
+    "id": "wiktionary-current",
+    "title": "Deutschsprachiges Wiktionary: aktueller Wortgebrauch",
+    "author": "Autorinnen und Autoren des deutschsprachigen Wiktionary",
+    "year": "Abruf 08.11.2026",
+    "url": "https://de.wiktionary.org/",
+    "license": "CC BY-SA 4.0; Bedeutungen sinngemäß zusammengefasst",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.de",
+    "note": "Zusätzliche Gegenwartsreferenz. Einzelne Lemmata und deren Versionsgeschichte sind bei den Einträgen verlinkt. Keine Aussage über die Häufigkeit in allen Regionen."
+  }
+]
