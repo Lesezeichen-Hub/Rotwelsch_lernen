@@ -36,7 +36,7 @@ export function guarded(action) {
     if (button?.tagName === 'BUTTON') button.disabled = true;
     try { await action(event); }
     catch (error) { notify(error.name === 'QuotaExceededError' ? 'Speicher voll. Bitte eine Sicherung exportieren und freien Speicher schaffen.' : error.message, true); }
-    finally { if (button?.tagName === 'BUTTON') button.disabled = false; }
+    finally { if (button?.tagName === 'BUTTON' && !button.hasAttribute('data-permanent-disabled')) button.disabled = false; }
   };
 }
 
@@ -58,7 +58,7 @@ export function external(label, url) {
 }
 
 export function select(label, options, value, onchange, attrs = {}) {
-  return h('label', { class: 'field' }, h('span', {}, label), h('select', { ...attrs, value, onchange }, options.map(option => h('option', { value: option.value, selected: option.value === value }, option.label))));
+  return h('label', { class: 'field' }, h('span', {}, label), h('select', { 'aria-label': label, ...attrs, value, onchange }, options.map(option => h('option', { value: option.value, selected: option.value === value }, option.label))));
 }
 
 export function modal(title, ...children) {

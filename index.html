@@ -5,8 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#146b63">
   <title>Rotwelsch lernen</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" type="image/png" href="./assets/icons/app-192.png">
+  <link rel="stylesheet" href="./css/app.css">
+  <script src="./js/theme-boot.js"></script>
+  <script type="module" src="./assets/app.js"></script>
 </head>
 <body>
-  <main id="main"><h1>Rotwelsch lernen</h1><p>Das Lernmodul wird eingerichtet.</p></main>
+  <a class="skip-link" href="#main">Zum Inhalt</a>
+  <div id="app">
+    <main id="main" tabindex="-1"><h1>Rotwelsch lernen</h1><p role="status">Wörterbuch wird geladen …</p></main>
+  </div>
+  <div id="notification" class="notification" role="status" aria-live="polite" hidden></div>
+  <noscript>Zum Öffnen des lokalen Lernmoduls muss JavaScript aktiviert sein.</noscript>
 </body>
 </html>

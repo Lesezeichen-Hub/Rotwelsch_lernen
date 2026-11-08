@@ -10,7 +10,8 @@
     "test": "node --test tests/unit/*.test.js",
     "test:content": "node tools/validate-content.mjs",
     "test:ui": "node tests/ui/ui.test.mjs",
-    "test:all": "npm test && npm run test:content && npm run test:ui"
+    "test:offline": "node tests/ui/update.test.mjs",
+    "test:all": "npm test && npm run test:content && npm run test:ui && npm run test:offline"
   },
   "engines": { "node": ">=22" },
   "dependencies": {

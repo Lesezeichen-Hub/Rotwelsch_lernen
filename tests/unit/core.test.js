@@ -47,6 +47,7 @@ test('Sicherung validiert Roundtrip, ungültige Daten und Merge', () => {
   const restored = validateBackup(backup);
   assert.equal(restored[0].cards['acheln:rw-de'].reps, 1);
   assert.equal(restored[0].reviews.length, 1);
+  assert.throws(() => undoReview(restored[0], restored[0].reviews.at(-1).id), /Importierte/);
   assert.equal(mergeProfiles([profile], restored)[0].reviews.length, 1);
   backup.profiles[0].cards['acheln:rw-de'].due = 'bad';
   assert.throws(() => validateBackup(backup), /Kartendatum/);

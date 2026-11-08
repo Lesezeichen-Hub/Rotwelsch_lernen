@@ -20,7 +20,7 @@ for (const [source, target] of [['ts-fsrs/LICENSE', 'ts-fsrs.txt'], ['lucide/LIC
 }
 await build({ absWorkingDir: root, entryPoints: ['js/app.js'], outfile: 'assets/app.js', bundle: true, format: 'esm', target: ['chrome110', 'firefox115', 'safari16'], minify: true, legalComments: 'eof' });
 const assets = ['index.html', 'manifest.webmanifest', 'js/theme-boot.js', 'assets/app.js', 'css/app.css', 'data/dictionary.json', 'data/lessons.json', 'data/texts.json', 'data/sources.json'];
-for (const directory of ['assets/fonts', 'assets/licenses', 'assets/sources']) {
+for (const directory of ['assets/fonts', 'assets/licenses', 'assets/sources', 'assets/icons']) {
   for (const filename of await readdir(path.join(root, directory))) assets.push(`${directory}/${filename}`);
 }
 const digests = {};

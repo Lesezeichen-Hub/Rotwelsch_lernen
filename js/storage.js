@@ -19,6 +19,7 @@ export function applyReview(profile, entryId, direction, rating, expectedReps, n
 export function undoReview(profile, expectedId) {
   const last = profile.reviews.at(-1);
   if (!last || last.id !== expectedId) throw new Error('Die letzte Bewertung hat sich inzwischen geändert.');
+  if (!last.log) throw new Error('Importierte Bewertungen können nicht rückgängig gemacht werden.');
   if (last.previous) profile.cards[last.key] = last.previous;
   else delete profile.cards[last.key];
   profile.reviews.pop();
