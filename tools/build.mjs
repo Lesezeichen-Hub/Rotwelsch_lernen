@@ -7,6 +7,7 @@ import { assembleData } from '../js/data.js';
 import { validateContent } from '../js/content.js';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
+const metadata = JSON.parse(await readFile(path.join(root, 'package.json'), 'utf8'));
 const load = async name => JSON.parse(await readFile(path.join(root, `data/${name}.json`), 'utf8'));
 const data = assembleData(await load('dictionary'), await load('sources'), await load('lessons'), await load('texts'));
 console.log('Inhalte:', validateContent(data));
@@ -25,9 +26,9 @@ for (const directory of ['assets/fonts', 'assets/licenses', 'assets/sources', 'a
 }
 const digests = {};
 for (const filename of assets) digests[filename] = createHash('sha256').update(await readFile(path.join(root, filename))).digest('hex');
-const version = createHash('sha256').update(JSON.stringify(digests)).digest('hex').slice(0, 16);
-await writeFile(path.join(root, 'assets/precache.json'), JSON.stringify({ version, assets, digests }, null, 2) + '\n');
 const template = await readFile(path.join(root, 'tools/sw-template.js'), 'utf8');
+const version = createHash('sha256').update(metadata.version).update(JSON.stringify(digests)).update(template).digest('hex').slice(0, 16);
+await writeFile(path.join(root, 'assets/precache.json'), JSON.stringify({ version, assets, digests }, null, 2) + '\n');
 await writeFile(path.join(root, 'sw.js'), template.replace('__BUILD_VERSION__', version));
-await writeFile(path.join(root, 'version.json'), JSON.stringify({ version: '1.0.0', build: version, content: data.version, ...validateContent(data) }, null, 2) + '\n');
+await writeFile(path.join(root, 'version.json'), JSON.stringify({ version: metadata.version, build: version, content: data.version, ...validateContent(data) }, null, 2) + '\n');
 console.log(`Offline-Build ${version}: ${assets.length} lokale Dateien`);

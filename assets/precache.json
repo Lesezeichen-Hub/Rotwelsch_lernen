@@ -1,5 +1,5 @@
 {
-  "version": "1ea5f2665adae0cf",
+  "version": "ae4c970e9be2ce39",
   "assets": [
     "index.html",
     "manifest.webmanifest",
@@ -51,7 +51,7 @@
     "index.html": "0328106b56bda68180521d418e4691ff9bd0a9c99b11dba58c44d4fe1a10a17c",
     "manifest.webmanifest": "6f02bf227c4343959a92583c9c90829fdc2174fc46fa3100d0e661c7bd28d477",
     "js/theme-boot.js": "4df130cca0875f4ac118dbf3f2f849e22121617f3b639189166274c43955de9f",
-    "assets/app.js": "ad9e7624c8af43016ee71587547ac6d5ae6c95a0dd0e4858ed9ff1d28db0c923",
+    "assets/app.js": "e1cc14a595e981a8a226ccc6bbf3b8de3e98cb40a2792c96843e0faaeff43cc7",
     "css/app.css": "782c3a3d3235db925fcb44dacbd6a07c42096a9fa8461504646407a53e1a1e3b",
     "data/dictionary.json": "43a4a69704d7d356d2f27ac0371a4a4f5b5e3f66e633eff071bb110fd069b3a9",
     "data/lessons.json": "bb7a2129765f86e8a167356c9f28a76f4b923b950402c61f86f5237cc06e02e6",

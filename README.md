@@ -55,6 +55,12 @@ laufenden Kartenlernsitzung. Defekte Assetdownloads oder falsche Prüfsummen
 verwerfen den neuen Cache; eine bereits funktionierende Version bleibt bestehen.
 Fremde Hub-Modulcaches werden nicht gelöscht.
 
+Kurzzeitige Downloadfehler werden bis zu dreimal versucht. Dauerhafte Fehler
+zeigen die betroffene Datei beziehungsweise den Versions- oder Speicherfehler.
+**Erneut versuchen** startet die Offline-Einrichtung neu, ohne den Lernstand
+zu löschen. Bei einem Versionskonflikt müssen die Dateien aus einem vollständig
+abgeschlossenen Build stammen; eine falsche Prüfsumme wird nicht übergangen.
+
 Der Lernstand wird getrennt vom Inhaltscache in IndexedDB gespeichert. Host,
 Port, Modulpfad und Browserprofil bestimmen den Speicher. `localhost` und
 `127.0.0.1` sind unterschiedliche Orte. Die Hub-Sicherung enthält diesen

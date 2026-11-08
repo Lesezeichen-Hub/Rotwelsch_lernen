@@ -13,6 +13,7 @@ let main;
 let counts;
 let registration;
 let offlineReady = false;
+let offlineError = '';
 let cleanup = () => {};
 const routes = [ ['home', 'Mein Lernplatz', 'GraduationCap'], ['dictionary', 'Wörterbuch', 'LibraryBig'], ['lessons', 'Lehrgang', 'BookOpen'], ['texts', 'Texte', 'FileText'], ['games', 'Spiele', 'Puzzle'], ['progress', 'Lernstand', 'ChartNoAxesColumnIncreasing'], ['settings', 'Einstellungen', 'Settings'], ['sources', 'Quellen', 'ShieldCheck'] ];
 const entries = () => [...content.entries, ...profile.custom];
@@ -72,7 +73,17 @@ function shell() {
 function updateOfflineState() {
   const state = document.querySelector('#offline-state');
   if (!state) return;
-  state.replaceChildren(icon(offlineReady ? 'ShieldCheck' : 'RefreshCw'), offlineReady ? (navigator.onLine ? 'Offline bereit' : 'Offline') : 'Offline-Cache wird vorbereitet');
+  state.replaceChildren(icon(offlineReady ? 'ShieldCheck' : offlineError ? 'WifiOff' : 'RefreshCw'), offlineReady ? (navigator.onLine ? 'Offline bereit' : 'Offline') : offlineError ? 'Offline-Einrichtung fehlgeschlagen' : 'Offline-Cache wird vorbereitet');
+  state.title = offlineError;
+  if (offlineError && !document.querySelector('#retry-offline')) state.after(button('Erneut versuchen', 'RefreshCw', retryOffline, { id: 'retry-offline' }));
+  if (!offlineError) document.querySelector('#retry-offline')?.remove();
+}
+
+async function retryOffline() {
+  if (!registration?.active) { location.reload(); return; }
+  offlineError = '';
+  updateOfflineState();
+  await registration.update();
 }
 
 function homeView() {
@@ -369,7 +380,7 @@ function settingsView() {
       dialog.close(); applyTheme(); shell(); render(); notify('Lernstand wiederhergestellt.');
     }
   }) });
-  const backup = h('section', {}, h('h2', {}, 'Lernstand sichern'), button('Sicherung exportieren', 'Download', async () => download(`rotwelsch-lernstand-${dayKey()}.json`, JSON.stringify(makeBackup(await allProfiles()), null, 2))), h('label', { class: 'field section' }, 'Sicherung wiederherstellen', backupInput), h('p', { class: 'small muted' }, 'Der Lernstand liegt in diesem Browser. Die Hub-Sicherung erfasst ihn nicht. Ein anderer Host, Port oder Browser hat einen eigenen Speicher.'), h('h3', {}, 'Offline'), h('p', {}, offlineReady ? 'Alle Lerninhalte sind lokal zwischengespeichert.' : 'Der Offline-Cache wird vorbereitet.'), button('Offline-Cache prüfen', 'RefreshCw', async () => { await registration?.update(); notify('Offline-Aktualisierung geprüft.'); }), h('p', { class: 'small muted' }, 'Vorlesen verwendet ausschließlich verfügbare lokale deutsche Stimmen; die Ausgabe ist keine historisch authentische Aussprache.'));
+  const backup = h('section', {}, h('h2', {}, 'Lernstand sichern'), button('Sicherung exportieren', 'Download', async () => download(`rotwelsch-lernstand-${dayKey()}.json`, JSON.stringify(makeBackup(await allProfiles()), null, 2))), h('label', { class: 'field section' }, 'Sicherung wiederherstellen', backupInput), h('p', { class: 'small muted' }, 'Der Lernstand liegt in diesem Browser. Die Hub-Sicherung erfasst ihn nicht. Ein anderer Host, Port oder Browser hat einen eigenen Speicher.'), h('h3', {}, 'Offline'), h('p', {}, offlineReady ? 'Alle Lerninhalte sind lokal zwischengespeichert.' : offlineError || 'Der Offline-Cache wird vorbereitet.'), button('Offline-Cache prüfen', 'RefreshCw', retryOffline), h('p', { class: 'small muted' }, 'Vorlesen verwendet ausschließlich verfügbare lokale deutsche Stimmen; die Ausgabe ist keine historisch authentische Aussprache.'));
   main.append(h('div', { class: 'settings-grid' }, settings, backup));
   const name = h('input', { required: true, maxlength: 100, 'aria-label': 'Neuer Lernplatz' });
   main.append(h('section', { class: 'section' }, h('h2', {}, 'Lernplätze'), h('form', { onsubmit: guarded(async event => {
@@ -396,9 +407,15 @@ async function setupOffline() {
     document.querySelector('#offline-state').textContent = 'Offline-Cache benötigt localhost oder HTTPS';
     return;
   }
+  navigator.serviceWorker.addEventListener('message', event => {
+    if (event.data?.type !== 'OFFLINE_ERROR' || !String(event.source?.scriptURL || '').startsWith(new URL('./', document.baseURI).href)) return;
+    offlineError = event.data.message || 'Offline-Einrichtung fehlgeschlagen.';
+    updateOfflineState();
+    notify(`Offline: ${offlineError}`, true);
+  });
   try {
     registration = await navigator.serviceWorker.register('./sw.js', { scope: './', updateViaCache: 'none' });
-    const ready = () => { offlineReady = Boolean(navigator.serviceWorker.controller); updateOfflineState(); };
+    const ready = () => { offlineReady = Boolean(navigator.serviceWorker.controller); if (offlineReady) offlineError = ''; updateOfflineState(); };
     let alreadyControlled = Boolean(navigator.serviceWorker.controller);
     const showUpdate = () => {
       if (!navigator.serviceWorker.controller || !registration.waiting || document.querySelector('#apply-update')) return;
@@ -413,13 +430,17 @@ async function setupOffline() {
       const worker = registration.installing;
       worker?.addEventListener('statechange', () => {
         if (worker.state === 'installed') showUpdate();
-        if (worker.state === 'redundant' && !offlineReady) { document.querySelector('#offline-state').textContent = 'Offline-Einrichtung fehlgeschlagen'; notify('Nicht alle Offline-Dateien konnten geladen werden. Online bleibt die App nutzbar.', true); }
+        if (worker.state === 'redundant') {
+          if (!offlineError) offlineError = 'Offline-Dateien konnten nicht geladen werden. Erneut versuchen; der vorhandene Lernstand bleibt erhalten.';
+          updateOfflineState();
+          notify(`Offline: ${offlineError}`, true);
+        }
       });
     });
     ready();
     navigator.serviceWorker.addEventListener('controllerchange', () => { ready(); if (alreadyControlled) location.reload(); alreadyControlled = true; });
     navigator.serviceWorker.ready.then(ready);
-  } catch (error) { document.querySelector('#offline-state').textContent = 'Offline-Cache nicht verfügbar'; notify(`Offline-Einrichtung: ${error.message}`, true); }
+  } catch (error) { offlineError = error.message; updateOfflineState(); notify(`Offline-Einrichtung: ${error.message}`, true); }
 }
 
 async function start() {
